@@ -5,75 +5,61 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public static void userName(){
-        Scanner scanner=new Scanner(System.in);
-        Pattern pattern = Pattern.compile("[A-Z]+[a-z]{3,}");
-        System.out.println("\nUserName Pattern Is first letter is Capital and Atleast 3 character");
-        System.out.println("Enter User Name Here");
-        String userName=scanner.next();
-        Matcher matcher = pattern.matcher(userName);
-        boolean name=(matcher.matches());
-        /**
-         *Using if-else loop for checking valid Username if true then valid and false then wrong
-         **/
-        if(matcher.matches()==name){
+    /**
+     * Using method for checking the valid firstName , lastname , gmailid and phoneNumber
+     */
+    public static void userRegistrationSystem() {
+        System.out.println("Welcome to User Registration system using Regex");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your First Name : ");
+        String firstName = scanner.nextLine();
+        boolean userName = Pattern.matches("[A-Z]{1}[a-z]{2,}", firstName);
+        if(userName==true){
+            System.out.println("First name is Valid");
+        }
+        else {
+            System.out.println("Please Enter Valid First Name");
+        }
 
-            System.out.println("The Given UserName is Valided ");
-        }
-        else{
-            System.out.println("Please Enter Valid UserName ");
-        }
-    }
-    public static void lastName(){
-        Scanner scanner=new Scanner(System.in);
-        Pattern pattern = Pattern.compile("[A-Z]+[a-z]{3,}");
-        System.out.println("*************************************");
-        System.out.println("\nLastName Pattern Is first letter is Capital and Atleast 3 character");
-        System.out.println("Enter Last Name Here");
-        String userLastName=scanner.next();
-        Matcher matcher = pattern.matcher(userLastName);
-        boolean name=(matcher.matches());
-        /**
-         *Using if-else loop for checking valid Lastname if true then valid and false then wrong
-         **/
-        if(matcher.matches()==name){
 
-            System.out.println("The Given LastName is Valided ");
+        System.out.println("Enter your Last Name : ");
+        String lastName = scanner.nextLine();
+        boolean userLastName=Pattern.matches("[A-Z][a-z]{2,}", lastName);
+        if(userLastName==true){
+            System.out.println("Last name is Valid");
         }
-        else{
-            System.out.println("Please Enter Valid LastName ");
+        else {
+            System.out.println("Please Enter Valid Last Name");
         }
-    }
-    public static void userGmail(){
-        Scanner scanner=new Scanner(System.in);
-        Pattern pattern = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+$");
-        System.out.println("*************************************");
-        System.out.println("\nEnter Valid gmail Id pattern is google4@gmail.com");
-        System.out.println("Enter gmail Id Here");
-        String userGmailId=scanner.nextLine();
-        Matcher matcher = pattern.matcher(userGmailId);
-        boolean name=(matcher.matches());
-        /**
-         *Using if-else loop for checking valid Lastname if true then valid and false then wrong
-         **/
-        if(matcher.matches()==name){
 
-            System.out.println("The Given gmail Id is Valided ");
+        System.out.println("Enter your Email : ");
+        String Email = scanner.nextLine();
+        boolean userEmail=Pattern.matches("^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+$", Email);
+        if(userEmail==true){
+            System.out.println("Email id is Valid");
         }
-        else{
-            System.out.println("Please Enter Valid gmail Id ");
+        else {
+            System.out.println("Please Enter Valid email id ");
+        }
+
+        System.out.println("Enter your Mobile No. : ");
+        CharSequence mobileNum = scanner.next();
+        boolean userNumber=Pattern.matches("(0|91)?[6-9][0-9]{9}", mobileNum);
+        if(userNumber==true){
+            System.out.println("Phone Number is Valid");
+        }
+        else {
+            System.out.println("Please Enter Valid Phone Number");
         }
     }
 
     /**
-     *This is Main method is using for checking the Lastname is valid or not
+     *This is Main Method is Using for Calling the method for checking valid first , lastname and mail id and phoneNumber
      */
-    public static void main(String[] args) {
-        userName();
-        lastName();
-        userGmail();
+        public static void main (String[]args) {
+        userRegistrationSystem();
 
 
-
+        }
     }
-}
+
