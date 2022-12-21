@@ -35,7 +35,7 @@ public class UserRegistration {
 
         System.out.println("Enter your Email : ");
         String Email = scanner.nextLine();
-        boolean userEmail=Pattern.matches("^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+$", Email);
+        boolean userEmail=Pattern.matches("^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?", Email);
         if(userEmail==true){
             System.out.println("Email id is Valid");
         }
