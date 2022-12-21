@@ -50,12 +50,12 @@ public class UserRegistration {
             System.out.println("Phone Number is Valid ");
         }
         else {
-            System.out.println("Please Enter Valid Phone Number !");
+            System.out.println("Please Enter Valid Phone Number!");
         }
 
         System.out.println("Enter your Password : ");
         String password = scanner1.nextLine();
-        boolean userPassword=Pattern.matches("[a-zA-Z]{8,}$", password);
+        boolean userPassword=Pattern.matches("(?=.*[a-z])(?=.*[A-Z]).{8}", password);
         if(userPassword==true){
             System.out.println("Password is Valid");
         }
